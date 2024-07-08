@@ -1,6 +1,98 @@
-.resident_container{
+/* SE MUEVEN LOS ESTILOS DEL INDEX.CSS A ESTE ARCHIVO DADO QUE NO SE IMPORTABA EL INDEX.CSS EN APP.JSX */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&display=swap');
+
+/* NUEVO RESETS */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: gray;
+  color: white;
+}
+
+html {
+  font-weight: 600;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+input,
+button {
+  display: inline-block;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  height: 25px;
+}
+
+button {
+  border: none;
+  padding: 0 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+
+/* agregando estilos*/
+
+.app {
+  background-color: #05292E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app_container{
   display:flex;
-  text-wrap: wrap;
+  /* text-wrap: wrap; NO ERA TEXT WRAP*/
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2em;
 }
+
+.app_banner{
+  width: 100%;
+}
+
+.app_form {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app_input {
+  border-radius: 8px 0 0 8px;
+}
+
+
+.app_btn {
+  background-color: #71A821;
+  color: white;
+  border-radius: 0 8px 8px 0;
+}
+
+.app_btn:hover {
+  filter: brightness(1.1);
+}
+

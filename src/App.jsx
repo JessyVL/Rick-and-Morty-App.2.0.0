@@ -8,9 +8,13 @@ import ResidentCard from './components/ResidentCard'
 function App() {
 
   const locationId = getRandomNumber(126)
+
   const [inputValue, setInputValue] = useState(locationId)
+
   const url =`https://rickandmortyapi.com/api/location/${inputValue}`
-  const [location ,getLocation,hasError] = useFetch(url)
+
+  const [location ,getLocation,hasError,isLoading] = useFetch(url)
+
 
   // Esta es la peticion (la 1era) de Locations 
   useEffect(() => {
@@ -26,11 +30,16 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Rick and Morty</h1>
-        <form onSubmit={handleSubmit}>
-          <input ref={inputLocation} type="text" />
-          <button>Search</button>
+    <>
+    {
+      isLoading ?
+      <h2> Loading ... </h2>
+      :
+    <div className='app'>
+        <img className='app_banner' src="./src/assets/fondo-img.jpg" alt="banner de la aplicacion" />
+        <form className='app_form' onSubmit={handleSubmit}>
+          <input className='app_input' type="number" min={1} max={126} ref={inputLocation} />
+          <button className='app_btn'>Search</button>
       </form>
       { 
         hasError
@@ -40,7 +49,7 @@ function App() {
               <LocationCard 
                 location={location}
               />
-              <div className='resident_container'>
+              <div className='app_container'>
                 {
                   // le colocamos la url como key porque son elementos unicos (terminan con la id de cada character)
                   location?.residents.map(url => (
@@ -54,7 +63,9 @@ function App() {
            </>
           )
         }
-    </div>
+     </div>
+     }
+    </>
   )
 }
 export default App
